@@ -1,6 +1,7 @@
 add_library(lynq_sdk
     src/Logger.cpp
     src/UUID.cpp
+    src/WifiProvisioningController.cpp
     src/EventBus.cpp
     src/Configuration.cpp
     src/Timer.cpp

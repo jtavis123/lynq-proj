@@ -1,3 +1,4 @@
+#include "lynq/network/WifiProvisioningController.h"
 #include "lynq/core/Configuration.h"
 #include "lynq/core/EventBus.h"
 #include "lynq/core/Logger.h"
@@ -27,6 +28,8 @@ public:
 enum class TestState { Idle, Ready, Error };
 }
 
+static void testWifiProvisioning();
+
 int main() {
     const auto ok = lynq::Result<int>::success(42);
     assert(ok.ok() && ok.value() == 42);
@@ -36,7 +39,7 @@ int main() {
     const auto id = lynq::UUID::random();
     const auto parsed = lynq::UUID::parse(id.toString());
     assert(parsed.has_value() && parsed.value() == id);
-    assert(lynq::kSdkVersion.toString() == "0.1.1-alpha");
+    assert(lynq::kSdkVersion.toString() == "0.2.1-alpha");
 
     lynq::Logger logger;
     auto sink = std::make_shared<MemorySink>();
@@ -74,5 +77,55 @@ int main() {
     std::this_thread::sleep_for(std::chrono::milliseconds(40));
     assert(fired.load());
 
+    testWifiProvisioning();
     return 0;
+}
+
+namespace {
+class FakeWifiService final : public lynq::network::IWifiService {
+public:
+    lynq::Result<void> initialize() override {
+        status_.state = lynq::network::WifiState::Idle;
+        notify();
+        return lynq::Result<void>::success();
+    }
+    lynq::Result<std::vector<lynq::network::WifiNetwork>> scan() override {
+        return lynq::Result<std::vector<lynq::network::WifiNetwork>>::success({
+            {"LYNQ Lab", -42, lynq::network::WifiSecurity::Wpa2Personal, false}
+        });
+    }
+    lynq::Result<void> connect(const lynq::network::WifiCredentials& credentials) override {
+        status_.state = lynq::network::WifiState::Connected;
+        status_.ssid = credentials.ssid;
+        status_.ipAddress = "192.168.1.50";
+        notify();
+        return lynq::Result<void>::success();
+    }
+    lynq::Result<void> disconnect() override {
+        status_ = {};
+        status_.state = lynq::network::WifiState::Idle;
+        notify();
+        return lynq::Result<void>::success();
+    }
+    lynq::Result<void> forgetNetwork() override { return disconnect(); }
+    lynq::network::WifiStatus status() const override { return status_; }
+    void setStatusCallback(StatusCallback callback) override { callback_ = std::move(callback); }
+private:
+    void notify() { if (callback_) callback_(status_); }
+    lynq::network::WifiStatus status_;
+    StatusCallback callback_;
+};
+}
+
+static void testWifiProvisioning() {
+    lynq::EventBus events;
+    FakeWifiService wifi;
+    lynq::network::WifiProvisioningController controller(wifi, events);
+    assert(controller.initialize().ok());
+    const auto scan = controller.refreshNetworks();
+    assert(scan.ok());
+    assert(scan.value().size() == 1);
+    assert(controller.submitCredentials({"LYNQ Lab", "test-password"}).ok());
+    assert(controller.status().state == lynq::network::WifiState::Connected);
+    assert(controller.status().ssid == "LYNQ Lab");
 }

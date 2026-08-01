@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.1-alpha - Wi-Fi Provisioning Foundation
+
+- Added portable Wi-Fi data types and service interface.
+- Added Wi-Fi provisioning controller with EventBus integration.
+- Added ESP-IDF Hub Wi-Fi adapter boundary.
+- Added provisioning workflow and security requirements.
+- Added host-side provisioning tests.
+
+
 ## 0.2.0-alpha - Hub Bring-Up Foundation
 
 - Added ESP-IDF Hub firmware project.

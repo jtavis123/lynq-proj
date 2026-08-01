@@ -49,3 +49,10 @@ The product definition and architecture are complete. SDK implementation and Hub
 ## Active milestone
 
 Hub Bring-Up v0.2.0-alpha: ESP-IDF scaffold, board abstraction, boot lifecycle and hardware validation plan.
+
+## Current engineering focus
+
+- Wi-Fi provisioning foundation
+- Persistent Hub settings
+- Physical Waveshare display and touch bring-up
+- Node discovery after network validation
