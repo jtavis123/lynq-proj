@@ -1,0 +1,9 @@
+{
+  "name": "@lynq/command-delivery",
+  "version": "0.5.1-alpha",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
