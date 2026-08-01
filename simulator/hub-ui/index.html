@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LYNQ Hub UI Simulator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="stage">
+    <section class="hub" aria-label="LYNQ Hub simulator">
+      <header class="status-bar">
+        <div>
+          <strong>LYNQ</strong>
+          <span id="home-name">Tavis Home</span>
+        </div>
+        <div class="status-items">
+          <span id="wifi-status">Wi-Fi</span>
+          <span id="cloud-status">Cloud</span>
+          <span id="alexa-status">Alexa</span>
+          <span id="time">12:53</span>
+        </div>
+      </header>
+
+      <section id="content" class="content" aria-live="polite"></section>
+
+      <nav class="bottom-nav" aria-label="Primary navigation">
+        <button data-page="home" class="active">Home</button>
+        <button data-page="devices">Devices</button>
+        <button data-page="scenes">Scenes</button>
+        <button data-page="automations">Automations</button>
+        <button data-page="settings">Settings</button>
+      </nav>
+    </section>
+  </main>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

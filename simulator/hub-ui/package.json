@@ -1,0 +1,10 @@
+{
+  "name": "@lynq/hub-ui-simulator",
+  "version": "0.9.1-alpha",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "test": "node --test"
+  }
+}
