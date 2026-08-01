@@ -11,6 +11,7 @@ add_library(lynq_sdk
     src/SceneEngine.cpp
     src/AutomationScheduler.cpp
     src/JsonConfigurationStore.cpp
+    src/UiApplicationModel.cpp
     src/EventBus.cpp
     src/Configuration.cpp
     src/Timer.cpp
@@ -38,3 +39,7 @@ add_test(NAME lynq_device_scene_tests COMMAND lynq_device_scene_tests)
 add_executable(lynq_automation_storage_tests tests/automation_storage_tests.cpp)
 target_link_libraries(lynq_automation_storage_tests PRIVATE lynq_sdk)
 add_test(NAME lynq_automation_storage_tests COMMAND lynq_automation_storage_tests)
+
+add_executable(lynq_ui_application_tests tests/ui_application_tests.cpp)
+target_link_libraries(lynq_ui_application_tests PRIVATE lynq_sdk)
+add_test(NAME lynq_ui_application_tests COMMAND lynq_ui_application_tests)

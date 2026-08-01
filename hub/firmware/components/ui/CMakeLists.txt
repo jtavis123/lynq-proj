@@ -1,0 +1,11 @@
+idf_component_register(
+    SRCS
+        "src/HubUiController.cpp"
+        "src/LvglUiPort.cpp"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        lynq_sdk
+        board_port
+        lvgl
+)
