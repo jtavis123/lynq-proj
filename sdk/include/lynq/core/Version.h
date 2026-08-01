@@ -22,6 +22,6 @@ struct Version {
     auto operator<=>(const Version&) const = default;
 };
 
-inline constexpr Version kSdkVersion{0, 1, 0, "alpha"};
+inline constexpr Version kSdkVersion{0, 1, 1, "alpha"};
 
 } // namespace lynq
