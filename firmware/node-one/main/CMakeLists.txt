@@ -1,0 +1,15 @@
+idf_component_register(
+    SRCS
+        "app_main.cpp"
+        "NodeOneApp.cpp"
+        "hardware/NodeOneBoard.cpp"
+    INCLUDE_DIRS
+        "."
+        "hardware"
+    REQUIRES
+        lynq_sdk
+        esp_event
+        esp_netif
+        esp_timer
+        nvs_flash
+)
