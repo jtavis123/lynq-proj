@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0-alpha - Node Connectivity Foundation
+
+- Added Node identity, capability, health, pairing and heartbeat models.
+- Added transport-independent Node discovery and pairing interface.
+- Added thread-safe Node registry and Hub-side Node manager.
+- Added heartbeat processing and offline timeout detection.
+- Added ESP-IDF Node transport boundary and Node connectivity requirements.
+- Added host-side Node lifecycle tests.
+
 ## 0.2.1-alpha - Wi-Fi Provisioning Foundation
 
 - Added portable Wi-Fi data types and service interface.

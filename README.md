@@ -56,3 +56,7 @@ Hub Bring-Up v0.2.0-alpha: ESP-IDF scaffold, board abstraction, boot lifecycle a
 - Persistent Hub settings
 - Physical Waveshare display and touch bring-up
 - Node discovery after network validation
+
+## Current connectivity milestone
+
+Node discovery, pairing, capability reporting, heartbeats, and offline detection are implemented as portable SDK services. Physical transport validation remains pending Node hardware.
