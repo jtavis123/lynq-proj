@@ -45,3 +45,7 @@ ctest --test-dir build --output-on-failure
 **Release:** v0.1.0-alpha — Repository Foundation
 
 The product definition and architecture are complete. SDK implementation and Hub hardware bring-up are active.
+
+## Active milestone
+
+Hub Bring-Up v0.2.0-alpha: ESP-IDF scaffold, board abstraction, boot lifecycle and hardware validation plan.

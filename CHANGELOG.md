@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0-alpha - Hub Bring-Up Foundation
+
+- Added ESP-IDF Hub firmware project.
+- Added ESP32-S3/PSRAM configuration defaults.
+- Added OTA-ready partition table.
+- Added isolated Waveshare board port.
+- Added Hub boot state machine and application lifecycle.
+- Added splash and navigation shell hooks.
+- Added Hub bring-up checklist and software requirements.
+
 ## 0.1.1-alpha - Core SDK Expansion
 
 - Added thread-safe EventBus with subscription management.
