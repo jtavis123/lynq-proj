@@ -6,6 +6,9 @@ add_library(lynq_sdk
     src/NodeManager.cpp
     src/LearningController.cpp
     src/CommandRouter.cpp
+    src/DeviceRegistry.cpp
+    src/RoomRegistry.cpp
+    src/SceneEngine.cpp
     src/EventBus.cpp
     src/Configuration.cpp
     src/Timer.cpp
@@ -25,3 +28,7 @@ add_test(NAME lynq_learning_tests COMMAND lynq_learning_tests)
 add_executable(lynq_command_router_tests tests/command_router_tests.cpp)
 target_link_libraries(lynq_command_router_tests PRIVATE lynq_sdk)
 add_test(NAME lynq_command_router_tests COMMAND lynq_command_router_tests)
+
+add_executable(lynq_device_scene_tests tests/device_scene_tests.cpp)
+target_link_libraries(lynq_device_scene_tests PRIVATE lynq_sdk)
+add_test(NAME lynq_device_scene_tests COMMAND lynq_device_scene_tests)
