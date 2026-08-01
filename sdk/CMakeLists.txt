@@ -9,6 +9,8 @@ add_library(lynq_sdk
     src/DeviceRegistry.cpp
     src/RoomRegistry.cpp
     src/SceneEngine.cpp
+    src/AutomationScheduler.cpp
+    src/JsonConfigurationStore.cpp
     src/EventBus.cpp
     src/Configuration.cpp
     src/Timer.cpp
@@ -32,3 +34,7 @@ add_test(NAME lynq_command_router_tests COMMAND lynq_command_router_tests)
 add_executable(lynq_device_scene_tests tests/device_scene_tests.cpp)
 target_link_libraries(lynq_device_scene_tests PRIVATE lynq_sdk)
 add_test(NAME lynq_device_scene_tests COMMAND lynq_device_scene_tests)
+
+add_executable(lynq_automation_storage_tests tests/automation_storage_tests.cpp)
+target_link_libraries(lynq_automation_storage_tests PRIVATE lynq_sdk)
+add_test(NAME lynq_automation_storage_tests COMMAND lynq_automation_storage_tests)
