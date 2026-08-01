@@ -10,6 +10,7 @@ enum class ErrorCode {
     AlreadyExists,
     Timeout,
     Busy,
+    Cancelled,
     NotConnected,
     AccessDenied,
     OutOfMemory,

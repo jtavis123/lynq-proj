@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.0-alpha - Node One and Learning Foundation
+
+- Added Node One ESP-IDF firmware scaffold.
+- Added OTA-ready Node partition layout.
+- Added isolated Node One hardware abstraction.
+- Added RF/IR signal command model.
+- Added transport-independent learning-radio interface.
+- Added learning workflow controller, events, cancellation and replay.
+- Added learning engine tests and Node One software requirements.
+
 ## 0.3.0-alpha - Node Connectivity Foundation
 
 - Added Node identity, capability, health, pairing and heartbeat models.
@@ -16,7 +26,6 @@
 - Added ESP-IDF Hub Wi-Fi adapter boundary.
 - Added provisioning workflow and security requirements.
 - Added host-side provisioning tests.
-
 
 ## 0.2.0-alpha - Hub Bring-Up Foundation
 
@@ -35,8 +44,6 @@
 - Added reusable StateMachine template.
 - Added portable TimerService abstraction.
 - Expanded unit tests and SDK documentation.
-
-All notable changes to the LYNQ Platform are documented here.
 
 ## [0.1.0-alpha] - 2026-08-01
 

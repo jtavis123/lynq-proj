@@ -4,6 +4,7 @@ add_library(lynq_sdk
     src/WifiProvisioningController.cpp
     src/NodeRegistry.cpp
     src/NodeManager.cpp
+    src/LearningController.cpp
     src/EventBus.cpp
     src/Configuration.cpp
     src/Timer.cpp
@@ -15,3 +16,7 @@ target_compile_features(lynq_sdk PUBLIC cxx_std_20)
 add_executable(lynq_sdk_tests tests/sdk_tests.cpp)
 target_link_libraries(lynq_sdk_tests PRIVATE lynq_sdk)
 add_test(NAME lynq_sdk_tests COMMAND lynq_sdk_tests)
+
+add_executable(lynq_learning_tests tests/learning_tests.cpp)
+target_link_libraries(lynq_learning_tests PRIVATE lynq_sdk)
+add_test(NAME lynq_learning_tests COMMAND lynq_learning_tests)
