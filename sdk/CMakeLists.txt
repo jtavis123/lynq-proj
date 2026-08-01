@@ -5,6 +5,7 @@ add_library(lynq_sdk
     src/NodeRegistry.cpp
     src/NodeManager.cpp
     src/LearningController.cpp
+    src/CommandRouter.cpp
     src/EventBus.cpp
     src/Configuration.cpp
     src/Timer.cpp
@@ -20,3 +21,7 @@ add_test(NAME lynq_sdk_tests COMMAND lynq_sdk_tests)
 add_executable(lynq_learning_tests tests/learning_tests.cpp)
 target_link_libraries(lynq_learning_tests PRIVATE lynq_sdk)
 add_test(NAME lynq_learning_tests COMMAND lynq_learning_tests)
+
+add_executable(lynq_command_router_tests tests/command_router_tests.cpp)
+target_link_libraries(lynq_command_router_tests PRIVATE lynq_sdk)
+add_test(NAME lynq_command_router_tests COMMAND lynq_command_router_tests)
