@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: LYNQ Alexa Smart Home Skill Lambda
+Resources:
+  LynqAlexaSkillFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: nodejs22.x
+      Handler: src/handler.handler
+      CodeUri: .
+      Timeout: 8
+      MemorySize: 256
+      Architectures: [arm64]
+      Environment:
+        Variables:
+          LYNQ_API_BASE_URL: https://api.example.invalid

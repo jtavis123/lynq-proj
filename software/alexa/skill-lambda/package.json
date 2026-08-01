@@ -1,0 +1,10 @@
+{
+  "name": "@lynq/alexa-smart-home-skill",
+  "version": "0.5.0-alpha",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test"
+  }
+}

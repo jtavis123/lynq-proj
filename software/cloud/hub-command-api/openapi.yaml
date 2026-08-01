@@ -1,0 +1,61 @@
+openapi: 3.1.0
+info:
+  title: LYNQ Hub Command API
+  version: 0.5.0-alpha
+paths:
+  /v1/alexa/endpoints:
+    get:
+      summary: List Alexa endpoints owned by an authenticated LYNQ user
+      parameters:
+        - in: query
+          name: userId
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Endpoint list
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/AlexaEndpoint' }
+  /v1/commands:
+    post:
+      summary: Route a cloud command to a user's LYNQ Hub
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CloudCommand' }
+      responses:
+        '202':
+          description: Command accepted
+components:
+  schemas:
+    AlexaEndpoint:
+      type: object
+      required: [endpointId, friendlyName, hubId, nodeId, commandId]
+      properties:
+        endpointId: { type: string }
+        friendlyName: { type: string }
+        hubId: { type: string }
+        nodeId: { type: string }
+        commandId: { type: string }
+        supportsPower: { type: boolean }
+        supportsScene: { type: boolean }
+        displayCategories:
+          type: array
+          items: { type: string }
+    CloudCommand:
+      type: object
+      required: [userId, endpointId, hubId, nodeId, commandId, action, messageId]
+      properties:
+        userId: { type: string }
+        endpointId: { type: string }
+        hubId: { type: string }
+        nodeId: { type: string }
+        commandId: { type: string }
+        deviceClass: { type: string }
+        action: { type: string, enum: [activate, deactivate] }
+        correlationToken: { type: string }
+        messageId: { type: string }
