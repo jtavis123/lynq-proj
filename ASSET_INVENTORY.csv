@@ -1,0 +1,5 @@
+category,product,document_or_asset,revision,status,repository_path,owner,notes
+hardware,LYNQ Hub,,,planned,hardware/,,
+manufacturing,Node One,,,planned,manufacturing/,,
+marketing,LYNQ Platform,,,planned,marketing/,,
+certification,LYNQ Platform,,,planned,docs/certification/,,
