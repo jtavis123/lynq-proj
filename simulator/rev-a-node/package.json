@@ -1,0 +1,7 @@
+{
+  "name": "@lynq/rev-a-node-simulator",
+  "version": "1.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test" }
+}
