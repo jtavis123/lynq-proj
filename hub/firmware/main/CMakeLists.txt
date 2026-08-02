@@ -1,3 +1,1 @@
-idf_component_register(SRCS "main.cpp"
-                       INCLUDE_DIRS "."
-                       REQUIRES lynq_app board_port)
+idf_component_register(SRCS "app_main.cpp" INCLUDE_DIRS "." REQUIRES hub_os)

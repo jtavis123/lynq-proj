@@ -1,0 +1,9 @@
+{
+  "profileId": "waveshare-esp32-s3-touch-lcd-4.3b",
+  "resolution": {"width": 800, "height": 480},
+  "orientation": "landscape",
+  "touch": "capacitive",
+  "status": "manufacturer-bsp-required",
+  "verified": ["product-family", "resolution", "esp32-s3"],
+  "unverifiedUntilHardwareBringup": ["lcd-controller", "touch-controller", "gpio-map", "rgb-timing", "backlight-polarity", "flash-size", "psram-size"]
+}
