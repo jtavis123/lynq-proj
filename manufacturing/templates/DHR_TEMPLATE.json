@@ -1,0 +1,64 @@
+{
+  "serialNumber": "LYNQ-NODE-REVA-000001",
+  "model": "LYNQ Rev A Node",
+  "hardwareRevision": "Rev A",
+  "workOrder": "WO-000001",
+  "componentLots": [],
+  "firmware": {
+    "version": "2.2.0-beta.1",
+    "gitCommit": "RECORD_SHA",
+    "artifactSha256": "RECORD_SHA256"
+  },
+  "tests": [
+    {
+      "testId": "VISUAL",
+      "result": "PENDING"
+    },
+    {
+      "testId": "POWER",
+      "result": "PENDING"
+    },
+    {
+      "testId": "USB",
+      "result": "PENDING"
+    },
+    {
+      "testId": "WIFI",
+      "result": "PENDING"
+    },
+    {
+      "testId": "BLE",
+      "result": "PENDING"
+    },
+    {
+      "testId": "PAIRING",
+      "result": "PENDING"
+    },
+    {
+      "testId": "OTA",
+      "result": "PENDING"
+    },
+    {
+      "testId": "BACKUP_RESTORE",
+      "result": "PENDING"
+    },
+    {
+      "testId": "RF433_RX",
+      "result": "PENDING"
+    },
+    {
+      "testId": "RF433_TX",
+      "result": "PENDING"
+    },
+    {
+      "testId": "IR_RX",
+      "result": "PENDING"
+    },
+    {
+      "testId": "IR_TX",
+      "result": "PENDING"
+    }
+  ],
+  "finalDisposition": "PENDING",
+  "approvedBy": ""
+}
