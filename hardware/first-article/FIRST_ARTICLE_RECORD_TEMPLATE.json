@@ -1,0 +1,44 @@
+{
+  "release": "2.3.0-beta.1",
+  "articleId": "FAI-0001",
+  "date": "YYYY-MM-DD",
+  "operator": "",
+  "hub": {
+    "manufacturer": "Waveshare",
+    "model": "ESP32-S3-Touch-LCD-4.3B",
+    "boardRevision": "",
+    "serialOrLot": "",
+    "usbDescriptor": "",
+    "factoryFlashBackup": {
+      "path": "",
+      "sha256": "",
+      "verified": false
+    },
+    "measuredDimensionsMm": {
+      "width": null,
+      "height": null,
+      "depth": null
+    },
+    "tests": {}
+  },
+  "nodes": [
+    {
+      "nodeId": "NODE-001",
+      "controller": "M5Stack AtomS3 Lite C124",
+      "carrier": "M5Stack Atomic Port ABC A130",
+      "rfTx": "M5Stack U114",
+      "rfRx": "M5Stack U113",
+      "ir": "M5Stack U002",
+      "measuredDimensionsMm": {
+        "width": null,
+        "height": null,
+        "depth": null
+      },
+      "gpioProfileLocked": false,
+      "tests": {}
+    }
+  ],
+  "defects": [],
+  "disposition": "PENDING",
+  "approvedBy": ""
+}
