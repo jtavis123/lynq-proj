@@ -1,0 +1,10 @@
+idf_component_register(
+    SRCS
+        "HubLearnedCommandExecutor.cpp"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        lynq_sdk
+        command_router
+        node_transport
+)
