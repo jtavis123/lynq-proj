@@ -1,12 +1,23 @@
-#include "HubOsApp.h"
-#include "esp_err.h"
+#include "HardwareDiagnostics.h"
 #include "esp_log.h"
-#include "nvs_flash.h"
-extern "C" void app_main(){
- esp_err_t r=nvs_flash_init();
- if(r==ESP_ERR_NVS_NO_FREE_PAGES||r==ESP_ERR_NVS_NEW_VERSION_FOUND){ESP_ERROR_CHECK(nvs_flash_erase());r=nvs_flash_init();}
- ESP_ERROR_CHECK(r);
- static lynq::hub::HubOsApp app;
- if(!app.initialize()){ESP_LOGE("LYNQ","Hub OS initialization failed");return;}
- app.run();
+
+extern "C" void app_main(void) {
+    static constexpr const char* TAG = "LYNQ_HUB";
+    ESP_LOGI(TAG, "LYNQ Hub physical bring-up v1.7.0");
+
+    lynq::hub::HardwareDiagnostics diagnostics;
+    const auto report = diagnostics.run();
+
+    ESP_LOGI(TAG, "chip=%s cores=%d flash=%uMB psram=%uKB",
+             report.chipModel.c_str(), report.coreCount,
+             report.flashBytes / (1024U * 1024U),
+             report.psramBytes / 1024U);
+
+    if (!report.minimumMemoryPassed) {
+        ESP_LOGE(TAG, "Memory validation failed; display bring-up is blocked.");
+        return;
+    }
+
+    ESP_LOGI(TAG, "Base hardware diagnostics passed.");
+    ESP_LOGW(TAG, "LCD/touch initialization remains gated on the exact Waveshare Type-B BSP example.");
 }
