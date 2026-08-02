@@ -1,0 +1,23 @@
+{
+  "product": "LYNQ",
+  "version": "2.0.0-beta.1",
+  "channel": "beta",
+  "minimumRepositoryBaseline": "1.9.0",
+  "hardwareProfiles": [
+    "waveshare-esp32-s3-4.3-type-b",
+    "rev-a-m5stack-atoms3-lite"
+  ],
+  "features": [
+    "hub-os",
+    "node-os",
+    "device-learning",
+    "device-database",
+    "scenes",
+    "automations",
+    "cloud-boundary",
+    "alexa-boundary",
+    "production-hub-ui",
+    "hardware-bring-up",
+    "reliable-command-execution"
+  ]
+}

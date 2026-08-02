@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "release": "2.0.0-beta.1",
+  "type": "integrated-beta",
+  "requiredChangelogs": [
+    "CHANGELOG_V1.1.0.md",
+    "CHANGELOG_V1.2.0.md",
+    "CHANGELOG_V1.3.0.md",
+    "CHANGELOG_V1.4.0.md",
+    "CHANGELOG_V1.5.0.md",
+    "CHANGELOG_V1.6.0.md",
+    "CHANGELOG_V1.7.0.md",
+    "CHANGELOG_V1.8.0.md",
+    "CHANGELOG_V1.9.0.md"
+  ],
+  "requiredAreas": [
+    "hub",
+    "node",
+    "sdk",
+    "cloud",
+    "simulator",
+    "hardware",
+    "docs"
+  ],
+  "betaExitCriteria": [
+    "Hub boots on physical Waveshare hardware",
+    "Touch input passes calibration and navigation test",
+    "At least one Rev A Node pairs and remains online for 24 hours",
+    "One IR command is learned and replayed 25 consecutive times",
+    "One supported fixed-code 433 MHz command is learned and replayed 25 consecutive times",
+    "Duplicate command IDs do not cause duplicate execution",
+    "Local control works during cloud outage",
+    "Configuration survives restart",
+    "No critical or high severity open defects"
+  ]
+}
