@@ -1,0 +1,4 @@
+export function createState(){return{page:'home',connection:{wifi:true,cloud:true,offlineNodes:0},devices:[{id:'tv',name:'Living Room TV',room:'Living Room',favorite:true,available:true,active:false},{id:'pool',name:'Pool Lights',room:'Backyard',favorite:true,available:true,active:true},{id:'patio',name:'Patio Shades',room:'Patio',favorite:false,available:false,active:false}],scenes:[{id:'movie',name:'Movie Night',subtitle:'4 actions',favorite:true}],activity:[{id:'a1',source:'Alexa',title:'TV Power On',success:true,timestamp:2}]}}
+export const toggleDevice=(s,id)=>({...s,devices:s.devices.map(d=>d.id===id&&d.available?{...d,active:!d.active}:d)});
+export const runScene=(s,id)=>({...s,activity:[{id:'x'+Date.now(),source:'Scene',title:s.scenes.find(x=>x.id===id)?.name||'Scene',success:true,timestamp:Date.now()},...s.activity]});
+export const setCloud=(s,v)=>({...s,connection:{...s.connection,cloud:v}});
