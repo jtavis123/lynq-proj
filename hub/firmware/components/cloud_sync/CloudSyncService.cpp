@@ -1,0 +1,2 @@
+#include "CloudSyncService.h"
+namespace lynq::hub { void CloudSyncService::poll(std::uint64_t now){ if(!transport_.connected()) return; cloud::RemoteCommand c; if(!transport_.receive(c)) return; transport_.sendAcknowledgement({c.commandId,c.hubId,cloud::CommandAckState::Executing,"Hub accepted command.",now}); std::string detail; bool ok=dispatch_.dispatch(c,detail); transport_.sendAcknowledgement({c.commandId,c.hubId,ok?cloud::CommandAckState::Succeeded:cloud::CommandAckState::Failed,detail,now}); } }

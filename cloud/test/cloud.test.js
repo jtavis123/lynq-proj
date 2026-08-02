@@ -1,0 +1,5 @@
+import test from 'node:test'; import assert from 'node:assert/strict'; import {LynqCloudSimulator,translateAlexa} from '../src/cloudSimulator.js';
+const devices=[{deviceId:'tv',enabled:true,commands:[{commandName:'Power On',enabled:true}]}];
+test('translates alexa',()=>{const c=translateAlexa({messageId:'1',householdId:'h',hubId:'hub',endpointId:'tv',directiveName:'TurnOn',expiresAtEpochMs:5000},devices,1000);assert.equal(c.commandName,'Power On');});
+test('holds while offline then delivers',()=>{const s=new LynqCloudSimulator();s.registerHub({hubId:'hub',householdId:'h',online:false});s.enqueue({commandId:'c',householdId:'h',hubId:'hub',deviceId:'tv',commandName:'Power On',expiresAtEpochMs:5000});assert.equal(s.next('hub',1000),null);s.setOnline('hub',true);assert.equal(s.next('hub',1100).commandId,'c');});
+test('rejects household mismatch',()=>{const s=new LynqCloudSimulator();s.registerHub({hubId:'hub',householdId:'h'});assert.throws(()=>s.enqueue({commandId:'c',householdId:'other',hubId:'hub'}));});

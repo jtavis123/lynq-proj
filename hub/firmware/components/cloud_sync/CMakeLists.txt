@@ -1,0 +1,1 @@
+idf_component_register(SRCS "CloudSyncService.cpp" INCLUDE_DIRS "include" REQUIRES lynq_sdk)

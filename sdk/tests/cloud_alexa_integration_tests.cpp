@@ -1,0 +1,4 @@
+#include "lynq/alexa/AlexaBridge.h"
+#include "lynq/cloud/RemoteCommandService.h"
+#include <cassert>
+int main(){ using namespace lynq; alexa::AlexaBridge bridge({{"tv","Living Room TV","living-room","television",true,{{"Power On",true}}}}); auto eps=bridge.discover(); assert(eps.size()==1); auto cmd=bridge.translate({"m1","house","hub","tv","TurnOn",5000},1000); assert(cmd.ok()); cloud::RemoteCommandService svc; assert(svc.registerHub({"hub","house","Kitchen Hub","1.5.0",false,0}).ok()); assert(svc.enqueue(cmd.value()).ok()); assert(!svc.nextForHub("hub",1100)); assert(svc.setHubOnline("hub",true,1200).ok()); auto delivered=svc.nextForHub("hub",1300); assert(delivered); assert(delivered->commandName=="Power On"); assert(svc.acknowledge({delivered->commandId,"hub",cloud::CommandAckState::Succeeded,"Node replay completed.",1400}).ok()); assert(svc.acknowledgements(delivered->commandId).size()==2); return 0; }
